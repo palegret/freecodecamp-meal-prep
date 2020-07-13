@@ -1,7 +1,9 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" class="text-xs-center display-1 font-weight-black my-5">Available Meal Plans</v-col>
+      <v-col cols="12" class="text-xs-center display-1 font-weight-black my-5"
+        >Available Meal Plans</v-col
+      >
     </v-row>
     <v-row>
       <v-col cols="12" md="4">

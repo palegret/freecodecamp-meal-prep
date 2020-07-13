@@ -1,12 +1,12 @@
 <template>
   <v-container fluid>
-    <v-layout>
-      <h1>About Page</h1>
-    </v-layout>
+    <v-row>
+      <h1>Join Page</h1>
+    </v-row>
   </v-container>
 </template>
 <script>
 export default {
-  name: 'About'
+  name: 'Join'
 };
 </script>
