@@ -22,3 +22,19 @@
 - To call an `action` in Vuex you use a `dispatch`. 
 - This is the one line of code for our showRecipes method:  
 `this.$store.dispatch('getRecipes', plan);`  
+
+## Creating userJoin Action in Vuex
+- We will create a new action called `userJoin`. 
+- By default, the first parameter passed to this action is `context`. 
+- I use object destructuring to get just `commit` from `context`. 
+- `commit` is how mutations are called.
+- I use Firebase to create the new user in the Firebase database. 
+- Firebase authentication provides a method called `createUserWithEmailAndPassword`. 
+- We pass the user’s email and password to this method. 
+- If it succeeds in registering the user, it returns a user object. 
+- We will call two mutations: `setUser` and `setIsAuthenticated`. 
+- In `state`, we need to add two new values: `user` and `isAuthenticated`. 
+- In `mutations` add a new mutation called `setUser`. 
+- Set the state value of `user` to the payload if successful, null if failed. 
+- Next, create a second `mutation` called `setIsAuthenticated`. 
+- Set the state value of `isAuthenticated` to the payload if successful, false if failed. 

@@ -1,6 +1,6 @@
 <template>
   <v-container fluid fill-height class="home-hero">
-    <v-row align-content="center" justify="center" class="pa-5">
+    <v-layout justify-center align-center column pa-5>
       <div class="display-4 font-weight-black white--text text-xs-center">
         HEALTHY MEALS
       </div>
@@ -11,12 +11,10 @@
         Finally be a foodie at home with fresh, chef-prepared meals delivered
         daily to your door.
       </div>
-    </v-row>
-    <v-row align-content="center" justify="center" class="pa-5">
       <v-btn fab class="mt-5 brown darken-4">
         <v-icon large color="white">expand_more</v-icon>
       </v-btn>
-    </v-row>
+    </v-layout>
   </v-container>
 </template>
 

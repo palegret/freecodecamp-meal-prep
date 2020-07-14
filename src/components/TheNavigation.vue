@@ -27,16 +27,26 @@
       <router-link to="/">
         <v-toolbar-title to="/">{{ appTitle }}</v-toolbar-title>
       </router-link>
-      <v-btn text class="hidden-sm-and-down" to="/menu">
+      <v-btn text class="hidden-sm-and-down ml-3" to="/menu">
         Menu
       </v-btn>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
-      <v-btn text class="hidden-sm-and-down" to="/sign-in">
-        SIGN IN
-      </v-btn>
-      <v-btn color="brown lighten-3" class="hidden-sm-and-down" to="/join">
-        JOIN
-      </v-btn>
+      <div v-if="!isAuthenticated" class="hidden-sm-and-down">
+        <v-btn text class="hidden-sm-and-down mr-2" to="/sign-in">
+          SIGN IN
+        </v-btn>
+        <v-btn color="brown lighten-3" class="hidden-sm-and-down" to="/join">
+          JOIN
+        </v-btn>
+      </div>
+      <div v-else>
+        <v-btn text class="mr-2" to="/profile">
+          PROFILE
+        </v-btn>
+        <v-btn outlined color="white" @click="signOut">
+          SIGN OUT
+        </v-btn>
+      </div>
     </v-app-bar>
   </span>
 </template>
@@ -51,9 +61,17 @@ export default {
       items: [{ title: 'Menu' }, { title: 'Sign In' }, { title: 'Join' }]
     };
   },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
+    }
+  },
   methods: {
     toggleDrawer() {
       this.drawer = !this.drawer;
+    },
+    signOut() {
+      this.$store.dispatch('userSignOut');
     }
   }
 };
