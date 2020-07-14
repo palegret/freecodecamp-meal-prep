@@ -22,17 +22,20 @@ export default new Router({
     {
       path: '/menu',
       name: 'menu',
-      component: () => import(/* webpackChunkName: "menu" */ '../views/Menu.vue')
+      component: () =>
+        import(/* webpackChunkName: "menu" */ '../views/Menu.vue')
     },
     {
       path: '/sign-in',
       name: 'signin',
-      component: () => import(/* webpackChunkName: "signin" */ '../views/Signin.vue')
+      component: () =>
+        import(/* webpackChunkName: "signin" */ '../views/Signin.vue')
     },
     {
       path: '/join',
       name: 'join',
-      component: () => import(/* webpackChunkName: "join" */ '../views/Join.vue')
+      component: () =>
+        import(/* webpackChunkName: "join" */ '../views/Join.vue')
     }
   ]
 });

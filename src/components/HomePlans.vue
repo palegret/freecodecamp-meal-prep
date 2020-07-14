@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" class="text-xs-center display-1 font-weight-black my-5"
-        >Available Meal Plans</v-col
-      >
+      <v-col cols="12" class="text-xs-center display-1 font-weight-black my-5">
+        Available Meal Plans
+      </v-col>
     </v-row>
     <v-row>
       <v-col cols="12" md="4">
@@ -27,6 +27,11 @@
               </div>
             </div>
           </v-card-title>
+          <v-card-actions v-if="['menu'].includes($route.name)">
+            <v-btn outlined block color="green" @click="showRecipes('keto')">
+              Select This Plan
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -50,6 +55,11 @@
               </div>
             </div>
           </v-card-title>
+          <v-card-actions v-if="['menu'].includes($route.name)">
+            <v-btn outlined block color="green" @click="showRecipes('paleo')">
+              Select This Plan
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
@@ -73,6 +83,11 @@
               </div>
             </div>
           </v-card-title>
+          <v-card-actions v-if="['menu'].includes($route.name)">
+            <v-btn outlined block color="green" @click="showRecipes('vegan')">
+              Select This Plan
+            </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -81,6 +96,11 @@
 
 <script>
 export default {
-  name: 'HomePlans'
+  name: 'HomePlans',
+  methods: {
+    showRecipes(plan) {
+      this.$store.dispatch('getRecipes', plan);
+    }
+  }
 };
 </script>
